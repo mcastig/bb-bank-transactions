@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bb-bank-transactions": {
+    "peachtree-bank": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/bb-bank-transactions",
+            "outputPath": "dist/peachtree-banks",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -36,13 +36,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5MB"
                 }
               ],
               "outputHashing": "all"
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "bb-bank-transactions:build:production"
+              "buildTarget": "peachtree-bank:build:production"
             },
             "development": {
-              "buildTarget": "bb-bank-transactions:build:development"
+              "buildTarget": "peachtree-bank:build:development"
             }
           },
           "defaultConfiguration": "development"
