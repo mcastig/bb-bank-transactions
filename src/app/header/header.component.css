@@ -1,0 +1,16 @@
+.header {
+  background-color: #ffffff;
+  border-bottom: 2px solid #ff9b00;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 14px 0;
+}
+
+.header__container {
+  margin: 0 auto;
+}
+
+.header__logo {
+  height: 25px;
+  width: 224px;
+}
