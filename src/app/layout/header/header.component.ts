@@ -11,3 +11,4 @@ export class HeaderComponent {
   urlImageLogo = 'assets/images/logo.jpg';
   altTextLogo = 'Peachtree Bank Logo';
 }
+

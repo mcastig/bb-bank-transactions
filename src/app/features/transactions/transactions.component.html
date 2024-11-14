@@ -1,0 +1,11 @@
+<div *ngIf="transactions.length > 0; else noTransactions">
+  <ul>
+    <li *ngFor="let transaction of transactions">
+      {{ transaction.merchant.name }} - {{ transaction.transaction.amountCurrency.amount }} {{ transaction.transaction.amountCurrency.currencyCode }}
+    </li>
+  </ul>
+</div>
+<ng-template #noTransactions>
+  <p>No transactions available.</p>
+</ng-template>
+
