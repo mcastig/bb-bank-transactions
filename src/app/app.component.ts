@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from "./layout/header/header.component";
-import { TransactionsComponent } from "./features/transactions/transactions.component";
+import { TransactionListComponent } from "./features/transaction-list/transaction-list.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, TransactionsComponent],
+  imports: [HeaderComponent, TransactionListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

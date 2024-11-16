@@ -1,0 +1,10 @@
+<section class="transaction-list">
+  <div class="transaction-list__header">
+    <p>Recent Transactions</p>
+  </div>
+  <div class="transaction-list__listing">
+    <ul>
+      <app-transaction-item *ngFor="let transaction of transactions" [transaction]="transaction"></app-transaction-item>
+    </ul>
+  </div>
+</section>

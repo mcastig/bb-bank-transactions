@@ -1,0 +1,34 @@
+.transaction-item {
+  align-items: center;
+  border-top: 2px solid #ccc;
+  color: #3b3b3b;
+  display: flex;
+  padding: 2px 20px;
+}
+
+.transaction-item__merchant {
+  flex-grow: 1;
+  margin-left: 1em;
+}
+
+.transaction-item__merchant span {
+  display: block;
+  margin-top: 0.5em;
+}
+
+.transaction-item__name,
+.transaction-item__amount {
+  font-weight: bold;
+}
+
+.transaction__logo {
+  height: 35px;
+  filter: grayscale(100%);
+  padding-left: 30px;
+  transition: filter 0.5s ease-in-out;
+  width: 35px;
+}
+
+.transaction__logo:hover {
+  filter: grayscale(0);
+}

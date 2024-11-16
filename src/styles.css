@@ -1,4 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+/* Fonts */
+@import url('https://fonts.google.com/specimen/Kanit');
+
 body {
+  /* background-image: url("/peachtree-bank/assets/images/background.jpg"); Use this rule when deploying project */
+  background-image: url("/assets/images/background.jpg"); /* Use this on development */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Kanit", sans-serif;
+  min-height: 100vh;
   margin: 0;
 }

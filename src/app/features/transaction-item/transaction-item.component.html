@@ -1,0 +1,12 @@
+<li class="transaction-item">
+  <span class="transaction-item__date">{{ transaction.dates.valueDate | date: 'MMM. dd' }}</span>
+  <img class="transaction__logo" [src]="transaction.merchant.logo" [alt]="transaction.merchant.name"/>
+  <div class="transaction-item__merchant">
+    <span class="transaction-item__name">{{ transaction.merchant.name }}</span>
+    <span class="transaction-item__type">{{ transaction.transaction.type }}</span>
+  </div>
+  <span class="transaction-item__amount">
+    {{ transaction.transaction.amountCurrency.amount | currency: transaction.transaction.amountCurrency.currencyCode }}
+  </span>
+</li>
+

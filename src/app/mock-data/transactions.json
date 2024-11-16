@@ -14,6 +14,7 @@
       },
       "merchant": {
         "name": "Backbase",
+        "logo": "/assets/icons/backbase.png",
         "accountNumber": "SI64397745065188826"
       }
     }, {
@@ -31,6 +32,7 @@
       },
       "merchant": {
         "name": "The Tea Lounge",
+        "logo": "/assets/icons/the-tea-lounge.png",
         "accountNumber": "SI64397745065188826"
       }
     }, {
@@ -48,6 +50,7 @@
       },
       "merchant": {
         "name": "Texaco",
+        "logo": "/assets/icons/texaco.png",
         "accountNumber": "SI64397745065188826"
       }
     }, {
@@ -65,6 +68,7 @@
       },
       "merchant": {
         "name": "The Tea Lounge",
+        "logo": "/assets/icons/the-tea-lounge.png",
         "accountNumber": "SI64397745065188826"
       }
     }, {
@@ -82,6 +86,7 @@
       },
       "merchant": {
         "name": "Amazon Online Store",
+        "logo": "/assets/icons/amazon-online-store.png",
         "accountNumber": "SI64397745065188826"
       }
     }, {
@@ -99,6 +104,7 @@
       },
       "merchant": {
         "name": "7-Eleven",
+        "logo": "/assets/icons/7-eleven.png",
         "accountNumber": "SI64397745065188826"
       }
     }, {
@@ -115,6 +121,7 @@
       },
       "merchant": {
         "name": "H&M Online Store",
+        "logo": "/assets/icons/h&m-online-store.png",
         "accountNumber": "SI64397745065188826"
       }
     }, {
@@ -132,6 +139,7 @@
       },
       "merchant": {
         "name": "Jerry Hildreth",
+        "logo": "/assets/icons/jerry-hildreth.png",
         "accountNumber": "SI64397745065188826"
       }
     }, {
@@ -149,6 +157,7 @@
       },
       "merchant": {
         "name": "Lawrence Pearson",
+        "logo": "/assets/icons/lawrence-pearson.png",
         "accountNumber": "SI64397745065188826"
       }
     }, {
@@ -166,6 +175,7 @@
       },
       "merchant": {
         "name": "Whole Foods",
+        "logo": "/assets/icons/whole-foods.png",
         "accountNumber": "SI64397745065188826"
       }
     }, {
@@ -183,6 +193,7 @@
       },
       "merchant": {
         "name": "Southern Electric Company",
+        "logo": "/assets/icons/southern-electric-company.png",
         "accountNumber": "SI64397745065188826"
       }
     }

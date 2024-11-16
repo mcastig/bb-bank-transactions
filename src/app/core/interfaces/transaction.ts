@@ -13,6 +13,7 @@ export interface Transaction {
   };
   merchant: {
     name: string;
+    logo: string;
     accountNumber: string;
   };
 }

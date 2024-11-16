@@ -4,15 +4,16 @@ import { TransactionsService } from '../../core/services/transactions.service';
 import { Transaction } from '../../core/interfaces/transaction';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { TransactionItemComponent } from "../transaction-item/transaction-item.component";
 
 @Component({
-  selector: 'app-transactions',
+  selector: 'app-transaction-list',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './transactions.component.html',
-  styleUrl: './transactions.component.css'
+  imports: [CommonModule, TransactionItemComponent],
+  templateUrl: './transaction-list.component.html',
+  styleUrl: './transaction-list.component.css'
 })
-export class TransactionsComponent implements OnInit {
+export class TransactionListComponent implements OnInit {
   // Property to store the transactions.
   transactions: Transaction[] = [];
 
