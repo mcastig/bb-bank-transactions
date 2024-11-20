@@ -9,3 +9,9 @@
   padding-bottom: 12px;
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .transaction-list__search input {
+    margin-bottom: 20px;
+  }
+}

@@ -2,8 +2,8 @@
   background: #f9f9f9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+  max-width: 400px;
   width: 100%;
-  max-width: 300px;
 }
 
 .transfer-form__header {
@@ -83,4 +83,10 @@
 
 .transfer-form__body__form button:hover {
   background-color: darkorange;
+}
+
+@media (max-width: 768px) {
+  .transfer-form {
+    max-width: none;
+  }
 }
