@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SearchByComponent } from './search-by.component';
+import { TransferFormComponent } from './transfer-form.component';
 
-describe('SearchByComponent', () => {
-  let component: SearchByComponent;
-  let fixture: ComponentFixture<SearchByComponent>;
+describe('TransferFormComponent', () => {
+  let component: TransferFormComponent;
+  let fixture: ComponentFixture<TransferFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SearchByComponent]
+      imports: [TransferFormComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SearchByComponent);
+    fixture = TestBed.createComponent(TransferFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

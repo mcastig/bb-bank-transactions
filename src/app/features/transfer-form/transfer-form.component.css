@@ -1,0 +1,86 @@
+.transfer-form {
+  background: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.transfer-form__header {
+  align-items: center;
+  background-color: #31858b;
+  color: #f9f9f9;
+  display: flex;
+  font-size: 1.1rem;
+  font-weight: 400;
+  justify-content: center;
+  padding: 14px;
+  position: relative;
+}
+
+.transfer-form__header__icon {
+  height: auto;
+  left: 22px;
+  position: absolute;
+  width: 24px;
+}
+
+.transfer-form__header__title {
+  flex-grow: 1;
+  margin-left: 40px;
+  text-align: center;
+}
+
+.transfer-form__body__form {
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem 1rem;
+}
+
+.transfer-form__body__form--top {
+  margin-top: 20px;
+}
+
+.transfer-form__body__form fieldset {
+  border: 0;
+}
+
+.transfer-form__body__form label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.transfer-form__body__form input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  color: #808080;
+  font-size: 1em;
+  padding: 1em 0 0.5em 0;
+  width: 100%;
+}
+
+.transfer-form__body__form input:focus {
+  outline: 0;
+}
+
+.transfer-form__body__form button {
+  background-color: rgba(255, 92, 0, 0.8);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  margin: 46px 10px 16px 0;
+  padding: 0.8em;
+  width: 200px;
+}
+
+.transfer-form__body__btn-submit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.transfer-form__body__form button:hover {
+  background-color: darkorange;
+}
