@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-by',
@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './search-by.component.css'
 })
 export class SearchByComponent {
+  @Output() getFilterEvent = new EventEmitter<string>();
 
+  getfilter(term: any): any {
+    this.getFilterEvent.emit(term.value);
+  }
 }

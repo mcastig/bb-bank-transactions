@@ -4,12 +4,12 @@
     <span class="transaction-list__header__title">Recent Transactions</span>
   </div>
   <div class="transaction-list__filters">
-    <app-search-by></app-search-by>
+    <app-search-by (getFilterEvent)="getFilterSearch($event)"></app-search-by>
     <app-sort-by></app-sort-by>
   </div>
   <div class="transaction-list__listing">
     <ul>
-      <app-transaction-item *ngFor="let transaction of transactions" [transaction]="transaction">
+      <app-transaction-item *ngFor="let transaction of filteredTransactions" [transaction]="transaction">
       </app-transaction-item>
     </ul>
   </div>

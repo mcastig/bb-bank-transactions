@@ -18,6 +18,7 @@ import { SortByComponent } from "../sort-by/sort-by.component";
 export class TransactionListComponent implements OnInit {
   // Property to store the transactions.
   transactions: Transaction[] = [];
+  filteredTransactions: Transaction[] = [];
 
   // Property to store error messages.
   errorMessage: string | null = null;
@@ -38,6 +39,17 @@ export class TransactionListComponent implements OnInit {
     ).subscribe((data: Transaction[]) => {
       // Assign the received data to the transactions property.
       this.transactions = data;
+      this.filteredTransactions = this.transactions;
     });
+  }
+
+  getFilterSearch(text: string) {
+    if (!text) {
+      this.filteredTransactions = this.transactions;
+      return;
+    }
+    this.filteredTransactions = this.transactions.filter((term) =>
+      term?.merchant.name.toLocaleLowerCase().includes(text.toLocaleLowerCase()),
+    );
   }
 }

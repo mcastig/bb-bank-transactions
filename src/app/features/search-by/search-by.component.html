@@ -1,3 +1,3 @@
 <div class="transaction-list__search">
-  <input type="text" placeholder="Search by typing..." aria-label="Search transactions" />
+  <input type="text" (input)="getfilter($event.target)" placeholder="Search by typing..." aria-label="Search transactions" />
 </div>
