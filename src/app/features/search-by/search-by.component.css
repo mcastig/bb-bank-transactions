@@ -2,10 +2,10 @@
 .transaction-list__search input:focus {
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid #ccc;
   border-color: transparent;
   font-size: 16px;
   outline: none;
+  border-bottom: 1px solid #ccc;
   padding-bottom: 12px;
   width: 100%;
 }
