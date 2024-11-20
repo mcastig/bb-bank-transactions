@@ -1,22 +1,37 @@
 .transaction-list {
   background: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
   width: 100%;
 }
 
 .transaction-list__header {
+  align-items: center;
   background-color: #31858b;
   color: #f9f9f9;
-  text-align: center;
+  display: flex;
   font-size: 1.1rem;
   font-weight: 400;
-  padding: 1px 0;
-  width: 100%;
+  justify-content: center;
+  padding: 14px;
+  position: relative;
+}
+
+.transaction-list__header__icon {
+  height: auto;
+  left: 22px;
+  position: absolute;
+  width: 24px;
+}
+
+.transaction-list__header__title {
+  flex-grow: 1;
+  margin-left: 40px;
+  text-align: center;
 }
 
 .transaction-list__listing ul {
-  border: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
   border-top: none;
   padding: 0;
   margin: 0;

@@ -1,4 +1,4 @@
-<li class="transaction-item">
+<li class="transaction-item" [style.border-left]="'8px solid ' + transaction.categoryCode">
   <span class="transaction-item__date">{{ transaction.dates.valueDate | date: 'MMM. dd' }}</span>
   <img class="transaction__logo" [src]="transaction.merchant.logo" [alt]="transaction.merchant.name"/>
   <div class="transaction-item__merchant">
