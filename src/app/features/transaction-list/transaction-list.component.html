@@ -3,9 +3,21 @@
     <img class="transaction-list__header__icon" src="/assets/icons/briefcase.svg" alt="Briefcase" />
     <span class="transaction-list__header__title">Recent Transactions</span>
   </div>
+  <div class="transaction-list__filters">
+    <div class="transaction-list__search">
+      <input type="text" placeholder="Search by typing...">
+    </div>
+    <div class="transaction-list__sorting">
+      <span>Sort by</span>
+      <button>DATE<i>▼</i></button>
+      <button>BENEFICIARY</button>
+      <button>AMOUNT</button>
+    </div>
+  </div>
   <div class="transaction-list__listing">
     <ul>
-      <app-transaction-item *ngFor="let transaction of transactions" [transaction]="transaction"></app-transaction-item>
+      <app-transaction-item *ngFor="let transaction of transactions" [transaction]="transaction">
+      </app-transaction-item>
     </ul>
   </div>
 </section>
