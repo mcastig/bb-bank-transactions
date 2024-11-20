@@ -4,15 +4,8 @@
     <span class="transaction-list__header__title">Recent Transactions</span>
   </div>
   <div class="transaction-list__filters">
-    <div class="transaction-list__search">
-      <input type="text" placeholder="Search by typing...">
-    </div>
-    <div class="transaction-list__sorting">
-      <span>Sort by</span>
-      <button>DATE<i>▼</i></button>
-      <button>BENEFICIARY</button>
-      <button>AMOUNT</button>
-    </div>
+    <app-search-by></app-search-by>
+    <app-sort-by></app-sort-by>
   </div>
   <div class="transaction-list__listing">
     <ul>

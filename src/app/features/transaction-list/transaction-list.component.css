@@ -44,59 +44,6 @@
   padding: 1.1rem 1rem;
 }
 
-.transaction-list__search input,
-.transaction-list__search input:focus {
-  background-color: transparent;
-  border-color: transparent;
-  font-size: 16px;
-  border: 0;
-  outline: none;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 12px;
-  width: 100%;
-}
-
-/* Sorting buttons */
-.transaction-list__sorting {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.transaction-list__sorting span {
-  margin-right: 10px;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.transaction-list__sorting i {
-  color: #a6a6a6;
-}
-
-.transaction-list__sorting button {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-}
-
-.transaction-list__sorting button span {
-  margin-left: 5px;
-}
-
-.transaction-list__sorting button:hover {
-  background-color: #f0f0f0;
-}
-
-.transaction-list__sorting button:focus {
-  outline: none;
-  box-shadow: 0 0 3px #007bff;
-}
-
 .transaction-list__listing {
   padding: 1.1rem 1rem;
 }

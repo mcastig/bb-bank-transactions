@@ -5,11 +5,13 @@ import { Transaction } from '../../core/interfaces/transaction';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { TransactionItemComponent } from "../transaction-item/transaction-item.component";
+import { SearchByComponent } from "../search-by/search-by.component";
+import { SortByComponent } from "../sort-by/sort-by.component";
 
 @Component({
   selector: 'app-transaction-list',
   standalone: true,
-  imports: [CommonModule, TransactionItemComponent],
+  imports: [CommonModule, TransactionItemComponent, SearchByComponent, SortByComponent],
   templateUrl: './transaction-list.component.html',
   styleUrl: './transaction-list.component.css'
 })
