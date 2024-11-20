@@ -1,14 +1,13 @@
-/* Sorting buttons */
 .transaction-list__sorting {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: flex-end;
 }
 
 .transaction-list__sorting span {
-  margin-right: 10px;
   font-size: 16px;
   font-weight: 600;
+  margin-right: 10px;
 }
 
 .transaction-list__sorting i {
@@ -16,14 +15,14 @@
 }
 
 .transaction-list__sorting button {
+  align-items: center;
   background-color: #fff;
   border: 1px solid #ccc;
-  padding: 10px 20px;
   cursor: pointer;
-  font-weight: 500;
-  font-size: 13px;
   display: flex;
-  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 20px;
 }
 
 .transaction-list__sorting button span {
@@ -35,6 +34,6 @@
 }
 
 .transaction-list__sorting button:focus {
-  outline: none;
   box-shadow: 0 0 3px #007bff;
+  outline: none;
 }
