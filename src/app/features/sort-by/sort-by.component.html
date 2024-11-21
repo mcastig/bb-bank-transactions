@@ -1,12 +1,12 @@
 <div class="transaction-list__sorting">
   <span>Sort by</span>
-  <button aria-label="Sort by date" (click)="sortData('date')">
-    DATE <span *ngIf="sortColumn === 'date'">{{ sortDirection === 'asc' ? '▲' : '▼' }}</span>
+  <button aria-label="Sort by date" (click)="sortData('dates.valueDate')">
+    DATE <span *ngIf="sortColumn === 'dates.valueDate'">{{ sortDirection === 'asc' ? '▲' : '▼' }}</span>
   </button>
-  <button aria-label="Sort by beneficiary" (click)="sortData('beneficiary')">
-    BENEFICIARY <span *ngIf="sortColumn === 'beneficiary'">{{ sortDirection === 'asc' ? '▲' : '▼' }}</span>
+  <button aria-label="Sort by beneficiary" (click)="sortData('merchant.name')">
+    BENEFICIARY <span *ngIf="sortColumn === 'merchant.name'">{{ sortDirection === 'asc' ? '▲' : '▼' }}</span>
   </button>
-  <button aria-label="Sort by amount" (click)="sortData('amount')">
-    AMOUNT <span *ngIf="sortColumn === 'amount'">{{ sortDirection === 'asc' ? '▲' : '▼' }}</span>
+  <button aria-label="Sort by amount" (click)="sortData('transaction.amountCurrency.amount')">
+    AMOUNT <span *ngIf="sortColumn === 'transaction.amountCurrency.amount'">{{ sortDirection === 'asc' ? '▲' : '▼' }}</span>
   </button>
 </div>

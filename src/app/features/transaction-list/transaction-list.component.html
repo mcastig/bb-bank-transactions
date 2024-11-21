@@ -5,12 +5,15 @@
   </div>
   <div class="transaction-list__filters">
     <app-search-by (getFilterEvent)="getFilterSearch($event)"></app-search-by>
-    <app-sort-by></app-sort-by>
+    <app-sort-by (sortEvent)="sortTransactions($event)"></app-sort-by>
   </div>
   <div class="transaction-list__listing">
-    <ul>
+    <ul *ngIf="filteredTransactions.length > 0; else noResults">
       <app-transaction-item *ngFor="let transaction of filteredTransactions" [transaction]="transaction">
       </app-transaction-item>
     </ul>
+    <ng-template #noResults>
+      <p class="transaction-list__listing--empty-message">No transactions found.</p>
+    </ng-template>
   </div>
 </section>

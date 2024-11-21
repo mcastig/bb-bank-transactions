@@ -49,6 +49,10 @@
   padding: 1.1rem 1rem;
 }
 
+.transaction-list__listing--empty-message {
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .transaction-list__filters {
     display: block;
