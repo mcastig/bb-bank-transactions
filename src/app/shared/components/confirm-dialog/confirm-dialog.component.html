@@ -1,10 +1,12 @@
-<section>
-  <h1 mat-dialog-title>Confirmar Acción</h1>
+<section class="confirm-dialog__container">
+  <h1 mat-dialog-title>CONFIRM TRANSFER</h1>
   <div mat-dialog-content>
     <p>{{ data.message }}</p>
+    <p>Transfer to: <span>{{ data.name }}</span></p>
+    <p>Amount: <span>{{ data.amount }}</span></p>
   </div>
   <div mat-dialog-actions>
-    <button mat-button (click)="onCancel()">Cancelar</button>
-    <button mat-button color="primary" (click)="onConfirm()">Confirmar</button>
+    <button class="confirm-dialog__container--button-cancel" (click)="onCancel()">Cancel</button>
+    <button class="confirm-dialog__container--button-transfer" (click)="onConfirm()">Transfer</button>
   </div>
 </section>

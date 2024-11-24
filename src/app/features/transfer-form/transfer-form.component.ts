@@ -44,8 +44,11 @@ export class TransferFormComponent {
 
   onSubmit(): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '300px',
-      data: { message: '¿Estás seguro de que deseas realizar esta transferencia?' }
+      data: {
+        message: 'Are you sure you want to make this transfer?',
+        name: this.transaction.merchant.name,
+        amount: this.transaction.transaction.amountCurrency.amount
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
