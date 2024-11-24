@@ -3,18 +3,23 @@
     <img class="transfer-form__header__icon" src="/assets/icons/transfer-arrows.svg" alt="Make Transfer" />
     <span class="transfer-form__header__title">Make a Transfer</span>
   </header>
-  <form class="transfer-form__body__form">
+  <form class="transfer-form__body__form" (ngSubmit)="onSubmit()">
     <fieldset class="transfer-form__body__form--top">
       <label for="fromAccount">FROM ACCOUNT</label>
       <input type="text" id="fromAccount" value="Free Checking(4692) - $5824.76" disabled />
     </fieldset>
     <fieldset class="transfer-form__body__form--top">
       <label for="toAccount">TO ACCOUNT</label>
-      <input type="text" id="toAccount" value="Georgia Power Electric Company" />
+      <input type="text" id="toAccount"
+        [(ngModel)]="transaction.merchant.name"
+        placeholder="Georgia Power Electric Company"
+        name="beneficiary" required />
     </fieldset>
     <fieldset class="transfer-form__body__form--top">
       <label for="amount">AMOUNT</label>
-      <input type="text" id="amount" value="$0.00" />
+      <input type="text" id="amount"
+        [(ngModel)]="transaction.transaction.amountCurrency.amount"
+        placeholder="$0.00" name="amount" required />
     </fieldset>
     <div class="transfer-form__body__btn-submit">
       <button type="submit">SUBMIT</button>

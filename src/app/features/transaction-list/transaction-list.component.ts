@@ -34,7 +34,7 @@ export class TransactionListComponent implements OnInit {
    * and initializes the transactions and filteredTransactions arrays.
    */
   ngOnInit(): void {
-    this.transactionsService.getData().pipe(
+    this.transactionsService.getTransactions().pipe(
       catchError(error => {
         // Log the error to the console for debugging purposes.
         console.error('Error fetching transactions:', error);
@@ -50,7 +50,7 @@ export class TransactionListComponent implements OnInit {
       this.transactions = data;
 
       // Initially, set filteredTransactions to be the same as transactions.
-      this.filteredTransactions = [...this.transactions];
+      this.filteredTransactions = this.transactions;
     });
   }
 

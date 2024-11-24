@@ -19,11 +19,15 @@ export class TransactionsService {
    * Fetches transaction data from the JSON file.
    * @returns An Observable that emits an array of Transaction objects.
    */
-  getData(): Observable<Transaction[]> {
+  getTransactions(): Observable<Transaction[]> {
     /**
      * Makes an HTTP GET request and returns an Observable that emits
      * the data typed as Transaction[].
      */
     return this.http.get<Transaction[]>(this.url);
+  }
+
+  addTransaction(transaction: Transaction): Observable<Transaction> {
+    return this.http.post<Transaction>(this.url, transaction);
   }
 }
