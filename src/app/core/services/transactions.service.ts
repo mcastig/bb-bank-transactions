@@ -11,7 +11,7 @@ export class TransactionsService {
    * Using 'json-server --watch transactions.json' into the folder /app/mock-data/
    * to simulate a api
    */
-  private url = 'http://localhost:3000/data';
+  private url = 'http://localhost:3000/transactions';
 
   constructor(private http: HttpClient) { }
 
