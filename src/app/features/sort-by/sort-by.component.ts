@@ -32,7 +32,6 @@ export class SortByComponent {
     } else {
       // Set the new column and reset the direction to 'asc'.
       this.sortColumn = column;
-      this.sortDirection = 'asc';
     }
     // Emit the sorting event to notify the parent component.
     this.emitSortEvent();
