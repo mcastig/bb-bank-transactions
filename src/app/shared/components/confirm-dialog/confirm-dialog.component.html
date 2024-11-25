@@ -6,7 +6,11 @@
     <p>Amount: <span>{{ data.amount }}</span></p>
   </div>
   <div mat-dialog-actions>
-    <button class="confirm-dialog__container--button-cancel" (click)="onCancel()">Cancel</button>
-    <button class="confirm-dialog__container--button-transfer" (click)="onConfirm()">Transfer</button>
+    <button class="confirm-dialog__button--cancel" (click)="onCancel()">
+      Cancel
+    </button>
+    <button class="confirm-dialog__button--transfer" (click)="onConfirm()">
+      Transfer
+    </button>
   </div>
 </section>
