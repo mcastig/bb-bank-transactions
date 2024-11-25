@@ -18,6 +18,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 export class TransferFormComponent {
   transactionDate: number = Date.now();
   transactionId: string = this.generateUuid();
+  messageModal: string = 'Are you sure you want to make this transfer?';
 
   transaction: Transaction = {
     id: this.transactionId,
@@ -45,7 +46,7 @@ export class TransferFormComponent {
   onSubmit(): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {
-        message: 'Are you sure you want to make this transfer?',
+        message: this.messageModal,
         name: this.transaction.merchant.name,
         amount: this.transaction.transaction.amountCurrency.amount
       }

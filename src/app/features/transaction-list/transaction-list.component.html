@@ -3,7 +3,7 @@
     <img class="transaction-list__header__icon" src="/assets/icons/briefcase.svg" alt="Briefcase" />
     <span class="transaction-list__header__title">Recent Transactions</span>
   </div>
-  <div class="transaction-list__filters">
+  <div *ngIf="filteredTransactions.length > 0" class="transaction-list__filters">
     <app-search-by (getFilterEvent)="getFilterSearch($event)"></app-search-by>
     <app-sort-by (sortEvent)="sortTransactions($event)"></app-sort-by>
   </div>

@@ -7,10 +7,10 @@
 
 .peachtree__content {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1200px;
   gap: 20px;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
 }
 
 .peachtree__left-side {
@@ -27,7 +27,8 @@
     align-items: center;
   }
 
-  .peachtree__left-side, .peachtree__right-side {
+  .peachtree__left-side,
+  .peachtree__right-side {
     width: 100%;
   }
 }
