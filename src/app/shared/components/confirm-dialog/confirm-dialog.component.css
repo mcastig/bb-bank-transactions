@@ -21,12 +21,12 @@ button {
 }
 
 .confirm-dialog__button--transfer {
-  background-color: darkorange;
+  background-color: #ff6500;
   color: white;
 }
 
 .confirm-dialog__button--transfer:hover {
-  background-color: #ff6500;
+  background-color: darkorange;
 }
 
 .confirm-dialog__button--cancel:hover {
