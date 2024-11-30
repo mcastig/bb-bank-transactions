@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { Transaction } from '../../core/interfaces/transaction';
 import { TransactionsService } from '../../core/services/transactions.service';
 import { v4 as uuidv4 } from 'uuid';
@@ -10,54 +11,74 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 @Component({
   selector: 'app-transfer-form',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatDialogModule],
+  imports: [CommonModule, ReactiveFormsModule, MatDialogModule],
   templateUrl: './transfer-form.component.html',
   styleUrl: './transfer-form.component.css'
 })
+export class TransferFormComponent implements OnInit {
+  transferForm!: FormGroup;
 
-export class TransferFormComponent {
-  transactionDate: number = Date.now();
-  transactionId: string = this.generateUuid();
-  messageModal: string = 'Are you sure you want to make this transfer?';
+  constructor(
+    private fb: FormBuilder,
+    private transactionsService: TransactionsService,
+    public dialog: MatDialog
+  ) {}
 
-  transaction: Transaction = {
-    id: this.transactionId,
-    categoryCode: "#12a580",
-    dates: {
-      valueDate: this.transactionDate
-    },
-    transaction: {
-      amountCurrency: {
-        amount: 0,
-        currencyCode: "EUR"
-      },
-      type: "Online Transfer",
-      creditDebitIndicator: "DBIT"
-    },
-    merchant: {
-      name: "",
-      logo: "/assets/icons/backbase.png",
-      accountNumber: "4692"
-    }
+  ngOnInit(): void {
+    this.transferForm = this.fb.group({
+      amount: [null, [Validators.required, Validators.min(1)]],
+      name: ['', Validators.required],
+      categoryCode: ['#12a580'],
+      valueDate: [Date.now()],
+      type: ['Online Transfer'],
+      creditDebitIndicator: ['DBIT'],
+      accountNumber: ['4692']
+    });
   }
-
-  constructor(private transactionsService: TransactionsService, public dialog: MatDialog) {}
 
   onSubmit(): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {
-        message: this.messageModal,
-        name: this.transaction.merchant.name,
-        amount: this.transaction.transaction.amountCurrency.amount
+        message: 'Are you sure you want to make this transfer?',
+        name: this.transferForm.value.name,
+        amount: this.transferForm.value.amount
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.transaction.id = this.generateUuid();
-        this.transactionsService.addTransaction(this.transaction).subscribe({
+        const newTransaction: Transaction = {
+          id: uuidv4(),
+          categoryCode: this.transferForm.value.categoryCode,
+          dates: {
+            valueDate: this.transferForm.value.valueDate
+          },
+          transaction: {
+            amountCurrency: {
+              amount: this.transferForm.value.amount,
+              currencyCode: 'EUR'
+            },
+            type: this.transferForm.value.type,
+            creditDebitIndicator: this.transferForm.value.creditDebitIndicator
+          },
+          merchant: {
+            name: this.transferForm.value.name,
+            logo: '/assets/icons/backbase.png',
+            accountNumber: this.transferForm.value.accountNumber
+          }
+        };
+
+        this.transactionsService.addTransaction(newTransaction).subscribe({
           next: response => {
             console.log('Transaction added:', response);
+            this.transferForm.reset();
+            this.transferForm.patchValue({
+              categoryCode: '#12a580',
+              valueDate: Date.now(),
+              type: 'Online Transfer',
+              creditDebitIndicator: 'DBIT',
+              accountNumber: '4692'
+            });
           },
           error: error => {
             console.error('Error adding transaction:', error);
@@ -65,9 +86,5 @@ export class TransferFormComponent {
         });
       }
     });
-  }
-
-  private generateUuid(): string {
-    return uuidv4();
   }
 }

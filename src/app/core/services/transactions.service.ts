@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Transaction } from '../interfaces/transaction';
 
 @Injectable({
@@ -12,6 +12,8 @@ export class TransactionsService {
    * to simulate a api
    */
   private url = 'http://localhost:3000/transactions';
+  private transactionsSubject = new BehaviorSubject<Transaction[]>([]);
+  public transactions$ = this.transactionsSubject.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -20,14 +22,17 @@ export class TransactionsService {
    * @returns An Observable that emits an array of Transaction objects.
    */
   getTransactions(): Observable<Transaction[]> {
-    /**
-     * Makes an HTTP GET request and returns an Observable that emits
-     * the data typed as Transaction[].
-     */
-    return this.http.get<Transaction[]>(this.url);
+    return this.http.get<Transaction[]>(this.url).pipe(
+      tap(transactions => this.transactionsSubject.next(transactions))
+    );
   }
 
-  addTransaction(transaction: Transaction): Observable<Transaction> {
-    return this.http.post<Transaction>(this.url, transaction);
+  addTransaction(transaction: Transaction): Observable<any> {
+    return this.http.post(this.url, transaction).pipe(
+      tap(() => {
+        const currentTransactions = this.transactionsSubject.value;
+        this.transactionsSubject.next([transaction, ...currentTransactions]);
+      })
+    );
   }
 }

@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TransactionsService } from '../../core/services/transactions.service';
 import { Transaction } from '../../core/interfaces/transaction';
-import { catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { of, Subscription } from 'rxjs';
 import { TransactionItemComponent } from "../transaction-item/transaction-item.component";
 import { SearchByComponent } from "../search-by/search-by.component";
 import { SortByComponent } from '../sort-by/sort-by.component';
@@ -15,9 +14,11 @@ import { SortByComponent } from '../sort-by/sort-by.component';
   templateUrl: './transaction-list.component.html',
   styleUrls: ['./transaction-list.component.css'] // Ensure this is 'styleUrls' (plural)
 })
-export class TransactionListComponent implements OnInit {
+export class TransactionListComponent implements OnInit, OnDestroy {
   // Array to store all transactions fetched from the service.
   transactions: Transaction[] = [];
+
+  subscription: Subscription = new Subscription;
 
   // Array to store transactions after applying filters or sorting.
   filteredTransactions: Transaction[] = [];
@@ -34,24 +35,18 @@ export class TransactionListComponent implements OnInit {
    * and initializes the transactions and filteredTransactions arrays.
    */
   ngOnInit(): void {
-    this.transactionsService.getTransactions().pipe(
-      catchError(error => {
-        // Log the error to the console for debugging purposes.
-        console.error('Error fetching transactions:', error);
-
-        // Set a user-friendly error message.
-        this.errorMessage = 'Failed to fetch transactions';
-
-        // Return an observable with an empty array as a fallback.
-        return of([]);
-      })
-    ).subscribe((data: Transaction[]) => {
-      // Store the fetched transactions.
-      this.transactions = data;
-
-      // Initially, set filteredTransactions to be the same as transactions.
+    this.subscription = this.transactionsService.transactions$.subscribe(transactions => {
+      this.transactions = transactions;
       this.filteredTransactions = this.transactions;
     });
+
+    this.transactionsService.getTransactions().subscribe();
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   /**
@@ -74,6 +69,7 @@ export class TransactionListComponent implements OnInit {
       term.merchant.name.toLocaleLowerCase().includes(text.toLocaleLowerCase())
     );
   }
+
 
   /**
    * Sorts the filtered transactions based on the provided column and direction.

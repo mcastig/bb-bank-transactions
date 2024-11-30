@@ -10,7 +10,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SearchByComponent {
   @Output() getFilterEvent = new EventEmitter<string>();
 
-  getfilter(term: any): any {
+  getFilter(term: any): any {
     this.getFilterEvent.emit(term.value);
   }
 }
