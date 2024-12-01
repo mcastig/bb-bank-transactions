@@ -55,21 +55,23 @@ export class TransactionListComponent implements OnInit, OnDestroy {
    * Otherwise, it filters the transactions to include only those where the merchant name
    * includes the search text (case insensitive).
    *
-   * @param text - The search text to filter transactions by.
+   * @param term - The search text to filter transactions by.
    */
-  getFilterSearch(text: string): void {
+  getFilterSearch(term: any): void {
     // If there's no search text, reset filteredTransactions to show all transactions.
-    if (!text) {
+    const searchTerm = term.toLowerCase();
+
+    if (!searchTerm) {
       this.filteredTransactions = this.transactions;
       return;
+    } else {
+      this.filteredTransactions = this.transactions.filter(transaction => {
+        return transaction.merchant.name.toLowerCase().includes(searchTerm) ||
+               transaction.transaction.type.toLowerCase().includes(searchTerm) ||
+               transaction.transaction.amountCurrency.amount.toString().includes(searchTerm);
+      });
     }
-
-    // Filter the transactions where the merchant's name includes the search text.
-    this.filteredTransactions = this.transactions.filter(term =>
-      term.merchant.name.toLocaleLowerCase().includes(text.toLocaleLowerCase())
-    );
   }
-
 
   /**
    * Sorts the filtered transactions based on the provided column and direction.

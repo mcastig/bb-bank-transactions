@@ -8,7 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './search-by.component.css'
 })
 export class SearchByComponent {
-  @Output() getFilterEvent = new EventEmitter<string>();
+  @Output() getFilterEvent = new EventEmitter<any>();
 
   getFilter(term: any): any {
     this.getFilterEvent.emit(term.value);
